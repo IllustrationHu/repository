@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springMVC.study.dao.RpRoomDao">
+
+	<resultMap id="BaseResultMap" type="springMVC.study.pojo.RpRoom" >
+	    <result column="PID" property="pid" jdbcType="INTEGER" />
+	    <result column="ROOMID" property="roomid" jdbcType="INTEGER" />
+	    <result column="ROOMNAME" property="roomName" jdbcType="VARCHAR" />
+	    <result column="TYPE" property="type" jdbcType="INTEGER" />
+	    <result column="STATE" property="state" jdbcType="INTEGER" />
+	    <result column="STPRICE" property="stPrice" jdbcType="DOUBLE" />
+	    <result column="CRPRICE" property="crPrice" jdbcType="DOUBLE" />
+	    <result column="CUSTOMER" property="customer" jdbcType="VARCHAR" />
+	    <result column="PRELEAVE" property="preLeave" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectRoomState" resultMap="BaseResultMap">
+      select * from rp_room;
+  </select>
+ </mapper>

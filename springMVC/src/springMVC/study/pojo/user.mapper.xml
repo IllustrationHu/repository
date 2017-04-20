@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springMVC.study.dao.UserDao">
+
+	<resultMap id="BaseResultMap" type="springMVC.study.pojo.User" >
+	    <result column="ID" property="id" jdbcType="INTEGER" />
+	    <result column="NAME" property="name" jdbcType="VARCHAR" />
+	    <result column="PWD" property="pwd" jdbcType="VARCHAR" />
+  </resultMap>
+  
+	<select id="selectUsers" resultMap="BaseResultMap">
+		select * from user
+	</select>
+	
+	<insert id="add"  parameterType="springMVC.study.pojo.User">
+		insert into user values(
+			#{id,jdbcType=INTEGER},
+			#{name,jdbcType=VARCHAR},
+			#{pwd,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from user where id=#{id}
+	</delete>
+</mapper>
